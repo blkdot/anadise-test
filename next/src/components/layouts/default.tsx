@@ -21,6 +21,7 @@ const navigation = [
     { name: 'Documents', href: '#', icon: InboxIcon, current: false },
     { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
 ];
+
 const userNavigation = [
     { name: 'Your Profile', href: '#' },
     { name: 'Settings', href: '#' },
@@ -31,7 +32,7 @@ function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ');
 }
 
-export default function DefaultLayout({ children }) {
+export default function DefaultLayout({ children }: {children: React.ReactElement}) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (

@@ -1,11 +1,18 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { faker } from '@faker-js/faker';
+import { generateKey } from 'crypto';
 
 const createRandomClient = () => {
-    const sex = faker.name.sexType();
-    const firstName = faker.name.firstName();
-    const lastName = faker.name.lastName();
-    const email = faker.internet.email();
+    const fullName = faker.name;
+    const firstName = fullName.firstName();
+    const lastName = fullName.lastName();
+    const sex = fullName.sex();
+    
+    // create unique email from firstname and lastname
+    const email = faker.helpers.unique(faker.internet.email, [
+        firstName,
+        lastName,
+    ]);
 
     return {
         id: faker.datatype.uuid(),
