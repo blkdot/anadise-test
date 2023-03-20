@@ -5,6 +5,6 @@ export interface Client {
     fullName: string;
     sex: string,
     birthday: Date;
-    supportTier: 'standard' | 'gold' | 'platinum';
+    supportTier: string;
     hourlyRate: number;
 };

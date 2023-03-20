@@ -14,12 +14,10 @@ const Index: NextPage = () => {
     const { highlight } = router.query
 
     const [clients, setClients] = useState<Client[]>([]);
-    const [highlightId, setHighlightId] = useState<string | string[] | undefined>('');
     const [open, setOpen] = useState<boolean>(false);
 
 
     useEffect(() => {
-        setHighlightId(highlight);
         request('GET', '/clients').then((res) => {
             if (res.status === 200) {
                 console.log(res.body.clients);
@@ -63,7 +61,7 @@ const Index: NextPage = () => {
 
     return (
         <>
-            <ClientTable clients={clients} onRegister={onRegister} highlightId={highlightId} />
+            <ClientTable clients={clients} onRegister={onRegister} highlightId={highlight} />
             <Modal open={open} handleClose={handleClose} handleRegister={handleRegister} />
         </>
     );
