@@ -107,6 +107,7 @@ export default function Form({handleClose, handleRegister}: {handleClose: () => 
                         </div>
                     </div>
                 </div>
+                {/* Formik for validation */}
                 <Formik
                     initialValues={intialValues}
                     validate={validate}

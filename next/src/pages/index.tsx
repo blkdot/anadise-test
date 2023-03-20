@@ -18,6 +18,7 @@ const Index: NextPage = () => {
 
 
     useEffect(() => {
+        // get the clients data from the api
         request('GET', '/clients').then((res) => {
             if (res.status === 200) {
                 console.log(res.body.clients);
